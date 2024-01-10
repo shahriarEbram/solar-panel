@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-from streamlit_extras.stoggle import stoggle
 import plotly.express as px
 from preprocessing import convert_gregorian_to_jalali
 
@@ -164,11 +163,4 @@ with right_column_last:
                   f" {sum_ydc:.2f} Kw")
 
 
-def example():
-    stoggle(
-        "About Us",
-        """🥷 Powered By Department of IT and Software in Balintech""",
-    )
 
-
-example()
