@@ -1,0 +1,6 @@
+[data-testid="stMetricValue"] {
+    font-size: 10px;
+    overflow-wrap: break-word;
+    white-space: break-spaces;
+    color: red;
+}
