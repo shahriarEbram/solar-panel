@@ -12,6 +12,7 @@ df = pd.read_csv("total.csv")
 df = convert_gregorian_to_jalali(df)
 
 df_weather = pd.read_csv("weather_data.csv")
+df_weather = df_weather.rename(columns={'datetime': 'date'})
 df_weather = convert_gregorian_to_jalali(df_weather)
 
 months_dict = {
@@ -112,11 +113,11 @@ left_column2, middle_column2_1, middle_column2_2, right_column2 = st.columns(4)
 with left_column2:
     with st.container(border=True):
         st.metric("Sunrise:sunrise:",
-                  str(df_weather[df_weather['jdate'] == option]['sunrise'].iloc[0].split(' ')[0]))
+                  str(df_weather[df_weather['jdate'] == option]['sunrise'].iloc[0].split(' ')[0].split("T")[1]))
 with middle_column2_1:
     with st.container(border=True):
         st.metric("Sunset:sunrise_over_mountains:",
-                  str(df_weather[df_weather['jdate'] == option]['sunset'].iloc[0].split(' ')[0]))
+                  str(df_weather[df_weather['jdate'] == option]['sunset'].iloc[0].split(' ')[0].split("T")[1]))
 
 with middle_column2_2:
     with st.container(border=True):
@@ -124,6 +125,8 @@ with middle_column2_2:
 with right_column2:
     with st.container(border=True):
         st.metric("Solar Radiation", df_weather[df_weather['jdate'] == option]['solarradiation'])
+
+
 
 # ***********************************************************************************************************#
 
