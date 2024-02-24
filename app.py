@@ -2,13 +2,14 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from preprocessing import convert_gregorian_to_jalali
-
+from weather_history import get_weather
+get_weather()
 # page layout
 st.set_page_config(page_title="BT2 Dashboard", page_icon="🌎", layout="centered")
 st.header("Balintech Solar Panel Production", divider='grey')
 
 # Read CSV files and Preprocessing
-df = pd.read_csv("total.csv")
+df = pd.read_csv("solar_data.csv")
 df = convert_gregorian_to_jalali(df)
 
 df_weather = pd.read_csv("weather_data.csv")
