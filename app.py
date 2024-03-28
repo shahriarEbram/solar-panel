@@ -2,8 +2,6 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 from preprocessing import convert_gregorian_to_jalali
-from weather_condition import get_weather_history
-get_weather_history()
 
 # page layout
 st.set_page_config(page_title="BT2 Dashboard", page_icon="🌎", layout="centered")
